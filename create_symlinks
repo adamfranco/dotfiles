@@ -2,40 +2,17 @@
 
 use strict;
 use File::Copy;
-use File::Path qw(make_path);
+use File::Path qw(mkpath);
 
 sub file_names
 {
     return qw{
         .bash_profile
         .bashrc
-        bash_completion
-        .dir_colors
-        .gemrc
         .gitconfig
         .gitignore
-        .git-completion.sh
-        .inputrc
-        .irbrc
-        .irssi
-        .rdebugrc
         .screenrc
-        .sh_aliases
-        .shrc
-        .tmux.conf
-        .vim
         .vimrc
-        .vimrc_files
-        .zshrc
-        bin/diff_painter.pl
-        bin/tree.sh
-        bin/tpm
-        bin/tpc
-        bin/tpcert
-        bin/hub
-        bin/git-checkout-by-match
-        bin/redmine-ticket-status
-        .completion
     };
 }
 
@@ -55,13 +32,13 @@ sub get_timestamp {
 
 sub file_links
 {
-    my %file_links = map {glob("~/$_") => glob("~/config-files/$_")} file_names();
+    my %file_links = map {glob("~/$_") => glob("~/dotfiles/$_")} file_names();
     return %file_links;
 }
 
 sub link_files
 {
-    make_path(glob('~/bin'));
+    mkpath(glob('~/bin'));
     my %file_links = file_links();
     my $backup_date = get_timestamp();
 
