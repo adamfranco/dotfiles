@@ -15,6 +15,7 @@ sub file_names
         .screenrc
         .vimrc
         bin/grabssh
+        bin/git-multi-cherry-pick
     };
 }
 
