@@ -9,10 +9,12 @@ sub file_names
     return qw{
         .bash_profile
         .bashrc
+        .git-completion.bash 
         .gitconfig
         .gitignore
         .screenrc
         .vimrc
+        bin/grabssh
     };
 }
 

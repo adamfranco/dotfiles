@@ -1,0 +1,9 @@
+# Mac Finder files
+.DS_Store
+*._*
+
+# VI temp files
+*.swp
+
+# Other temp files
+*~

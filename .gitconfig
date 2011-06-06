@@ -1,0 +1,40 @@
+[user]
+    name = Adam Franco
+    email = afranco@middlebury.edu 
+
+[alias]
+    ci = commit -a
+    co = checkout
+    st = status -a
+    praise = blame
+	su = submodule update --init --recursive
+
+[apply]
+    whitespace = strip
+
+
+[pager]
+    color = true 
+
+[status]
+    color = auto
+
+[core]
+    excludesfile = ~/.gitignore
+[gui]
+	fontdiff = -family Courier -size 9 -weight normal -slant roman -underline 0 -overstrike 0
+[guitool "stash/pop"]
+	cmd = git stash pop
+	noconsole = yes
+[guitool "svn/rebase"]
+	cmd = git svn rebase
+[guitool "svn/dcommit"]
+	cmd = git svn dcommit
+[guitool "svn/fetch"]
+	cmd = git svn fetch
+[guitool "stash/ stash"]
+	cmd = git stash
+	noconsole = yes
+[guitool "stash/clear"]
+	cmd = git stash clear
+	noconsole = yes
