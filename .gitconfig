@@ -38,3 +38,5 @@
 [guitool "stash/clear"]
 	cmd = git stash clear
 	noconsole = yes
+[push]
+	default = simple
