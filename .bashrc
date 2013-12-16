@@ -14,6 +14,7 @@ alias Attach='grabssh ; screen -X "at * stuff fixssh" ;  screen -d -R'
 alias fixssh='source ~/.ssh_environment'
 alias gk='source ~/.ssh_environment ; gitk --all &'
 alias gg='source ~/.ssh_environment ; git gui &'
+alias ga='(gk) ; (gg)'
 
 #alias ls="ls --color=always"
 if ls --version 2>/dev/null | grep -q -e fileutils -e coreutils; then
