@@ -7,3 +7,6 @@
 
 # Other temp files
 *~
+
+# BBEdit settings
+*.bbeditSettings
