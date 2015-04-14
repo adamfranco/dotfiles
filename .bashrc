@@ -24,8 +24,6 @@ else
     alias ls='ls -G'
 fi
 
-export CVS_RSH=ssh
-
 # Source global definitions
 if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
@@ -53,13 +51,3 @@ fi
 
 PATH=$PATH:/usr/sbin
 
-
-
-export FEDORA_JAVA_HOME=/usr/lib/j2sdk1.4.2_08
-export FEDORA_HOME=/usr/local/fedora-2.1
-
-# Needed for SAKAI
-export JAVA_HOME=/usr/lib/java/jre
-export PATH=$PATH:$JAVA_HOME/bin
-export MAVEN_HOME=/usr/local/maven
-export PATH=$PATH:$MAVEN_HOME/bin
