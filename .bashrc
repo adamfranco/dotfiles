@@ -10,7 +10,7 @@ alias gcp="git cherry-pick"
 # The following two aliases are used to reset ssh connection information when 
 # reattaching to a running screen session. See the following for details:
 #    http://www.deadman.org/sshscreen.html
-alias Attach='grabssh ; screen -X "at * stuff fixssh" ;  screen -d -R'
+alias Attach='grabssh ; sleep 1s ; screen -X "at * stuff fixssh" ; sleep 1s; screen -d -R'
 alias fixssh='source ~/.ssh_environment'
 alias gk='source ~/.ssh_environment ; gitk --all &'
 alias gg='source ~/.ssh_environment ; git gui &'
