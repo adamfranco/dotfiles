@@ -32,7 +32,14 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # Git completion
-if [ -f ~/.git-completion.bash ]; then
+if [ -f /usr/local/src/git/contrib/completion/git-completion.bash -a -f /usr/local/src/git/contrib/completion/git-prompt.sh ]; then
+	source /usr/local/src/git/contrib/completion/git-prompt.sh
+	source /usr/local/src/git/contrib/completion/git-completion.bash
+
+	# Prompt format
+    export PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+elif [ -f ~/.git-completion.bash ]; then
+	source ~/.git-prompt.sh
 	source ~/.git-completion.bash
 
 	# Prompt format
