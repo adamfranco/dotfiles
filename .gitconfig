@@ -23,7 +23,7 @@
     excludesfile = ~/.gitignore
 	filemode = false
 [gui]
-	fontdiff = -family Courier -size 9 -weight normal -slant roman -underline 0 -overstrike 0
+	fontdiff = -family Courier -size 10 -weight normal -slant roman -underline 0 -overstrike 0
 	stageuntracked = no
 [guitool "stash/pop"]
 	cmd = git stash pop
