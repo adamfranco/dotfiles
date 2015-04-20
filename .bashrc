@@ -50,4 +50,11 @@ fi
 #fi
 
 PATH=$PATH:/usr/sbin
+PATH=$PATH:$HOME/bin
 
+# User specific environment and startup programs
+if [ -f ~/.bashrc.local ]; then
+	. ~/.bashrc.local
+fi
+
+export PATH
