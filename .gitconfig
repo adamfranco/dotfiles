@@ -8,6 +8,7 @@
     st = status -a
     praise = blame
 	su = submodule update --init --recursive
+    lol = log --oneline --graph --decorate
 
 [apply]
     whitespace = strip
