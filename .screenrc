@@ -18,12 +18,12 @@ hardstatus alwayslastline "%-Lw%{= BW}%50>%n%f* %t%{-}%+Lw%<"
 
 activity "Activity in %t(%n)"
 
-shelltitle "Anvil"
+shelltitle $HOSTNAME
 
 
 # Default Buffers
-screen	-t Root		0	su - 
-chdir $HOME
-screen			1	
-screen			2
-select 1
+#screen	-t Root		0	su - 
+#chdir $HOME
+#screen			1	
+#screen			2
+#select 1
