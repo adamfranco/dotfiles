@@ -10,3 +10,6 @@
 
 # BBEdit settings
 *.bbeditSettings
+
+# Atom Remote-FTP config files
+.ftpconfig
