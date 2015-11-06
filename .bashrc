@@ -12,8 +12,8 @@ alias gcp="git cherry-pick"
 #    http://www.deadman.org/sshscreen.html
 alias Attach='grabssh ; sleep 1s ; screen -X "at * stuff fixssh" ; sleep 1s; screen -d -R'
 alias fixssh='source ~/.ssh_environment'
-alias gk='source ~/.ssh_environment ; gitk --all &'
-alias gg='source ~/.ssh_environment ; git gui &'
+alias gk='if [ -f ~/.ssh_environment ]; then source ~/.ssh_environment ; fi; gitk --all &'
+alias gg='if [ -f ~/.ssh_environment ]; then source ~/.ssh_environment ; fi; git gui &'
 alias ga='(gk) ; (gg)'
 
 #alias ls="ls --color=always"
