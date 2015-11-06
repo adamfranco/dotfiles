@@ -7,7 +7,7 @@ alias ssh="ssh -X"
 alias gcp="git cherry-pick"
 
 
-# The following two aliases are used to reset ssh connection information when 
+# The following two aliases are used to reset ssh connection information when
 # reattaching to a running screen session. See the following for details:
 #    http://www.deadman.org/sshscreen.html
 alias Attach='grabssh ; sleep 1s ; screen -X "at * stuff fixssh" ; sleep 1s; screen -d -R'
@@ -44,6 +44,8 @@ elif [ -f ~/.git-completion.bash ]; then
 	export PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 fi
 
+# Set VIM as the default EDITOR (override in .bashrc.local)
+export EDITOR=vim
 # Fix VIM backspace problem
 #if tty --quiet ; then
         stty erase '^?'
