@@ -1,0 +1,4 @@
+# Rename this file to .bashrc.local and add local configuration settings that
+# might vary per user or per machine.
+
+export EDITOR=emacs
