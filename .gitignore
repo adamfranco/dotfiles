@@ -13,3 +13,6 @@
 
 # Atom Remote-FTP config files
 .ftpconfig
+
+# Local configurations
+.bashrc.local
