@@ -11,21 +11,21 @@ The only personal info you definitely want to change is the `.gitconfig`'s setti
 5. Edit `.gitconfig` and replace my name and email with yours.
 6. `./create_symlinks`
 
-## Features ##
+# Features #
 
-### `screen` and `X11` helpers
+## `screen` and `X11` helpers ##
 
 This config is set up to assist with a workflow based on reconnecting to long-running
 [`screen`](https://www.gnu.org/software/screen/) sessions on a remote machine,
 with these dotfiles installed on that remote machine.
 
-#### `.screenrc` ####
+### `.screenrc` ###
 Included in `.screenrc` are [a configuration of a tabbed view](.screenrc#L15-L17) of the
 current screen sessions, which makes screen much easier to use than the default
 mode which doesn't show any context.
 ![Image of screen tabs](doc/screen-tabs.png)
 
-#### `Attach` and `fixssh` ####
+### `Attach` and `fixssh` ###
 While it is easy to ssh to a remote machine and reconnect to a screen session
 with `screen -r` after a network disconnection or changing workstations, the
 screen sessions don't know anything about your new X11 window server's address,
@@ -47,7 +47,7 @@ Password:
 [user@remotemachine]$ git gui &
 ```
 
-#### Graphical Git support ####
+## Graphical Git support ##
 The `Attach` and `fixssh` commands work hand in hand with some [additional shortcuts](.bashrc#L15-L17)
 that help launch graphical Git programs from within screen sessions, fixing the
 `DISPLAY` settings along the way.
@@ -56,7 +56,7 @@ that help launch graphical Git programs from within screen sessions, fixing the
 - `gk` is a shortcut for `gitk --all &` (with `fixssh`)
 - `ga` is a shortcut for launching both.
 
-#### Git tweaks ####
+## Git tweaks ##
 This config provides a few other handy tweaks to help with Git workflows:
 
 - It sets up command completion in bash. so that you can type part of a command
@@ -95,7 +95,7 @@ This config provides a few other handy tweaks to help with Git workflows:
 
 - It adds a command that will allow you to cherry-pick a range of commits: [`git-multi-cherry-pick`](bin/git-multi-cherry-pick)
 
-#### BASH tweaks ####
+## BASH tweaks ##
 - Sets up ls-colors
 - Sets the default editor to `vim`
 - Fixes a backspace issue when running `vim` inside a `screen` session.
