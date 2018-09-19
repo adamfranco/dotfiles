@@ -20,7 +20,7 @@ This config is set up to assist with a workflow based on reconnecting to long-ru
 with these dotfiles installed on that remote machine.
 
 #### `.screenrc` ####
-Included in `.screenrc` are [a configuration of a tabbed view](https://github.com/adamfranco/dotfiles/blob/master/.screenrc#L15-L17) of the
+Included in `.screenrc` are [a configuration of a tabbed view](.screenrc#L15-L17) of the
 current screen sessions, which makes screen much easier to use than the default
 mode which doesn't show any context.
 
@@ -31,7 +31,7 @@ screen sessions don't know anything about your new X11 window server's address,
 so trying to start a graphical program will fail unless you tell each screen shell
 about the address in it's `DISPLAY` environmental variable.
 
-This config provides an [`Attach` command](https://github.com/adamfranco/dotfiles/blob/master/.bashrc#L10-L14) that grabs the `DISPLAY` from the new
+This config provides an [`Attach` command](.bashrc#L10-L14) that grabs the `DISPLAY` from the new
 parent shell and saves it before starting screen, then tries to set the `DISPLAY`
 for all shells in the `screen` session. There is also a `fixssh` command that will
 import the parent `DISPLAY` information into the current shell.
@@ -47,7 +47,7 @@ Password:
 ```
 
 #### Graphical Git support ####
-The `Attach` and `fixssh` commands work hand in hand with some [additional shortcuts](https://github.com/adamfranco/dotfiles/blob/master/.bashrc#L15-L17)
+The `Attach` and `fixssh` commands work hand in hand with some [additional shortcuts](.bashrc#L15-L17)
 that help launch graphical Git programs from within screen sessions, fixing the
 `DISPLAY` settings along the way.
 
@@ -65,7 +65,7 @@ This config provides a few other handy tweaks to help with Git workflows:
   information when in a Git working directory. Example: ```[afranco@saw wordpress (master)]$```
 
 - It adds a `git lol` command which is an alias of `git log` with some [extra formatting
-  parameters](https://github.com/adamfranco/dotfiles/blob/master/.gitconfig#L11) that allow it to show color-coded branching details in a shell. Example:
+  parameters](.gitconfig#L11) that allow it to show color-coded branching details in a shell. Example:
   ```
   [afranco@saw miis8 (master)]$ git lol
 
@@ -92,7 +92,7 @@ This config provides a few other handy tweaks to help with Git workflows:
   - `git cp` for `cherry-pick`
   - `git su` for `submodule update --init --recursive`
 
-- It adds a command that will allow you to cherry-pick a range of commits: [`git-multi-cherry-pick`](https://github.com/adamfranco/dotfiles/blob/master/bin/git-multi-cherry-pick)
+- It adds a command that will allow you to cherry-pick a range of commits: [`git-multi-cherry-pick`](bin/git-multi-cherry-pick)
 
 #### BASH tweaks ####
 - Sets up ls-colors
