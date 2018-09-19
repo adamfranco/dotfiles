@@ -23,6 +23,7 @@ with these dotfiles installed on that remote machine.
 Included in `.screenrc` are [a configuration of a tabbed view](.screenrc#L15-L17) of the
 current screen sessions, which makes screen much easier to use than the default
 mode which doesn't show any context.
+![Image of screen tabs](doc/screen-tabs.png)
 
 #### `Attach` and `fixssh` ####
 While it is easy to ssh to a remote machine and reconnect to a screen session
