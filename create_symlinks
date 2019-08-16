@@ -17,6 +17,7 @@ sub file_names
         .vimrc
         bin/grabssh
         bin/git-multi-cherry-pick
+        bin/run_serially
     };
 }
 

@@ -1,0 +1,113 @@
+#!/bin/bash
+
+pid_dir=/var/run
+log_dir=/var/log
+
+usage="
+usage:
+    $0 -t <PID tag> -p <PID directory> -l <log directory> '<command>' [... '<command_n>']
+
+or pipe commands via stdin:
+    echo \"<command>
+    ...
+    <command>\" | $0 -p <pid-group>
+"
+
+# Set up options
+OPTIND=1 # Reset is necessary if getopts was used previously in the script.  It is a good idea to make this local in a function.
+while getopts "ht:p:l:" option; do
+    case $option in
+	t ) program=$OPTARG;;
+	p ) pid_dir=$OPTARG;;
+	l ) log_dir=$OPTARG;;
+    h ) echo -e "$usage"
+        exit 1;;
+    esac
+done
+shift $(($OPTIND-1)) # Shift off the options and optional --.
+
+# Verify we have a valid program argument
+if [ -z "$program" ]; then
+    echo "Error: No pid-tag argument passed."
+    echo -e "$usage"
+    exit 1
+fi
+
+commands=()
+
+# Load any commands from positional parameters
+for param in "$@"; do
+	commands+=("$param")
+done
+
+# IF no commands were passed as arguments,
+# load any commands specified in STDIN
+if [ ${#@} -lt 1 ]; then
+	while read line; do
+		if [ -z "${line}" ]; then
+			# Do nothing
+			:
+		else
+			commands+=("${line}")
+		fi
+	done < /dev/stdin
+fi
+
+if [ ${#commands[@]} -lt 1 ]; then
+	echo "Error: No commands were specified."
+	echo "$usage"
+	exit 20
+fi
+
+
+pidfile="${pid_dir}/$program.pid"
+# If the PID file exists, ensure that the PID it mentions is still running.
+if [ -e "$pidfile" ]; then
+  # If it isn't, assume that it died without cleaning up its file.
+  pid=$(<$pidfile)
+  if ps -p $pid > /dev/null; then
+    echo -e "$program[$$]: Process $pid is still running. Skipping execution."
+    logger -t "$program[$$]" "Process $pid is still running. Skipping execution."
+    exit 1
+  else
+    echo -e "$program[$$]: Process $pid is gone. Cleaning up PID file."
+    logger -t "$program[$$]" "Process $pid is gone. Cleaning up PID file."
+  fi
+fi
+# Record our PID.
+echo "$$" > $pidfile
+
+start=`date +%s`
+echo -e "$program[$$]: Starting run."
+logger -t "$program[$$]" "Starting run."
+
+# Run our commands serially.
+for command in "${commands[@]}"
+do
+  echo -e "$program[$$]: Starting \`$command\`"
+  logger -t "$program[$$]" "Starting \`$command\`"
+  command_start=`date +%s`
+  message=$( { eval "$command"; } 2>&1 )
+  status=$?
+  command_end=`date +%s`
+  command_runtime=$((command_end-command_start))
+  if [ "$status" != "0" ]; then
+    echo -e "$program[$$]: Error $status running: \`$command\` $message"
+    logger -t "$program[$$]" "Error $status running: \`$command\` $message"
+  fi
+  logger -t "$program[$$]" "Command \`$command\` completed in $command_runtime seconds"
+done
+
+end=`date +%s`
+runtime=$((end-start))
+echo -e "$program[$$]: Run completed in $runtime seconds"
+logger -t "$program[$$]" "Run completed in $runtime seconds"
+
+# Record the last time we successfully run so that we can monitor this timestamp
+# with PRTG.
+echo "$end" > "${log_dir}/$program.lastrun"
+
+# We're done -- clean up.
+rm $pidfile
+exit 0
+
