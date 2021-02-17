@@ -8,7 +8,7 @@
     st = status -a
     cp = cherry-pick
     praise = blame
-	  su = submodule update --init --recursive
+    su = submodule update --init --recursive
     lol = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 
 [apply]
@@ -23,24 +23,24 @@
 
 [core]
     excludesfile = ~/.gitignore
-	filemode = false
+    filemode = false
 [gui]
-	fontdiff = -family Courier -size 10 -weight normal -slant roman -underline 0 -overstrike 0
-	stageuntracked = no
+    fontdiff = -family Courier -size 10 -weight normal -slant roman -underline 0 -overstrike 0
+    stageuntracked = no
 [guitool "stash/pop"]
-	cmd = git stash pop
-	noconsole = yes
+    cmd = git stash pop
+    noconsole = yes
 [guitool "svn/rebase"]
-	cmd = git svn rebase
+    cmd = git svn rebase
 [guitool "svn/dcommit"]
-	cmd = git svn dcommit
+    cmd = git svn dcommit
 [guitool "svn/fetch"]
-	cmd = git svn fetch
+    cmd = git svn fetch
 [guitool "stash/ stash"]
-	cmd = git stash
-	noconsole = yes
+    cmd = git stash
+    noconsole = yes
 [guitool "stash/clear"]
-	cmd = git stash clear
-	noconsole = yes
+    cmd = git stash clear
+    noconsole = yes
 [push]
-	default = simple
+    default = simple
