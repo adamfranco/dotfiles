@@ -52,7 +52,7 @@ export EDITOR=vim
 #fi
 
 PATH=$PATH:/usr/sbin
-PATH=$PATH:$HOME/bin
+PATH=$HOME/bin:$PATH
 
 # User specific environment and startup programs
 if [ -f ~/.bashrc.local ]; then
