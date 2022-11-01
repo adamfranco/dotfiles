@@ -45,3 +45,5 @@
     noconsole = yes
 [push]
     default = simple
+[pull]
+	rebase = false
