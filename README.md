@@ -99,3 +99,14 @@ This config provides a few other handy tweaks to help with Git workflows:
 - Sets up ls-colors
 - Sets the default editor to `vim`
 - Fixes a backspace issue when running `vim` inside a `screen` session.
+
+# Handy shell commands
+
+Below are notes on handy shell commands that might not warrant their own alias or wrapper, but are often useful.
+
+## Clear out a git working directory
+
+```
+find . -maxdepth 1 ! -name '.git*' ! -name '.' ! -name '..' -exec rm -Rf {} \;
+```
+
