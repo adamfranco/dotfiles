@@ -18,6 +18,7 @@ sub file_names
         bin/grabssh
         bin/git-multi-cherry-pick
         bin/run_serially
+        bin/delete-all-but-dot-git-and-reset
     };
 }
 

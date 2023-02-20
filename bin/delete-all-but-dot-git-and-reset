@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [ ! -d .git ]; then
+  echo "This doesn't look like the root of a git working directory."
+  exit 1
+fi
+
+echo "Deleting everything except the .git/ subdirectory..."
+find . -maxdepth 1 ! -name '.git' ! -name '.' ! -name '..' -exec rm -Rf {} \;
+echo "Resetting with git reset --hard"
+git reset --hard
