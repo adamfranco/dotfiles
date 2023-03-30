@@ -19,6 +19,7 @@ sub file_names
         bin/git-multi-cherry-pick
         bin/run_serially
         bin/delete-all-but-dot-git-and-reset
+        bin/pantheon-watch-all-in-tabs
     };
 }
 

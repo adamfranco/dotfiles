@@ -1,0 +1,24 @@
+#!/bin/bash
+
+if ! command -v node &> /dev/null
+then
+  nvm use stable
+
+  if ! command -v node &> /dev/null
+  then
+    echo "node command could not be found. Please install node.
+    exit 1
+  fi
+fi
+
+if ! command -v ttab &> /dev/null
+then
+  echo "ttab command could not be found. Please install:"
+  echo "  npm install -g ttab"
+  exit 1
+fi
+
+cd ~/Work-WorkingDirectories/pantheon/
+for dir in *; do 
+  ttab terminus workflow:watch "$dir"
+done
