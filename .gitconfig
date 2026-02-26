@@ -3,18 +3,13 @@
     email = afranco@middlebury.edu
 
 [alias]
-    ci = commit -a
     co = checkout
-    st = status -a
-    cp = cherry-pick
-    praise = blame
-    su = submodule update --init --recursive
     lol = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
     addnw = !sh -c 'git diff -U0 -w --no-color "$@" | git apply --cached --ignore-whitespace --unidiff-zero -'
+    su = submodule update --init --recursive
 
 [apply]
     whitespace = strip
-
 
 [pager]
     color = true
@@ -22,9 +17,16 @@
 [status]
     color = auto
 
+[push]
+    default = simple
+
+[pull]
+	rebase = false
+
 [core]
     excludesfile = ~/.gitignore
     filemode = false
+
 [gui]
     fontdiff = -family Courier -size 10 -weight normal -slant roman -underline 0 -overstrike 0
     stageuntracked = no
@@ -43,7 +45,3 @@
 [guitool "stash/clear"]
     cmd = git stash clear
     noconsole = yes
-[push]
-    default = simple
-[pull]
-	rebase = false
