@@ -9,7 +9,7 @@
     su = submodule update --init --recursive
 
 [apply]
-    whitespace = strip
+    whitespace = fix
 
 [pager]
     color = true
