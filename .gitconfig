@@ -1,20 +1,15 @@
 [user]
-	name = Adam Franco
-	email = afranco@middlebury.edu
+    name = Adam Franco
+    email = afranco@middlebury.edu
 
 [alias]
-    ci = commit -a
     co = checkout
-    st = status -a
-    cp = cherry-pick
-    praise = blame
-    su = submodule update --init --recursive
     lol = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
     addnw = !sh -c 'git diff -U0 -w --no-color "$@" | git apply --cached --ignore-whitespace --unidiff-zero -'
+    su = submodule update --init --recursive
 
 [apply]
-    whitespace = strip
-
+    whitespace = fix
 
 [pager]
     color = true
@@ -22,9 +17,16 @@
 [status]
     color = auto
 
+[push]
+    default = simple
+
+[pull]
+    rebase = false
+
 [core]
     excludesfile = ~/.gitignore
     filemode = false
+
 [gui]
     fontdiff = -family Courier -size 10 -weight normal -slant roman -underline 0 -overstrike 0
     stageuntracked = no
@@ -46,11 +48,11 @@
 [push]
     default = simple
 [pull]
-	rebase = false
+    rebase = false
 [init]
-	defaultBranch = main
+    defaultBranch = main
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
