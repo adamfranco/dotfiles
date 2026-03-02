@@ -1,12 +1,12 @@
 #!/bin/bash
 
-if ! command -v node &> /dev/null
+if ! command -v npm &> /dev/null
 then
   nvm use stable
 
-  if ! command -v node &> /dev/null
+  if ! command -v npm &> /dev/null
   then
-    echo "node command could not be found. Please install node.
+    echo "npm command could not be found. Please install npm."
     exit 1
   fi
 fi
