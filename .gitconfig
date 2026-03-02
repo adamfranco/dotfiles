@@ -1,6 +1,6 @@
 [user]
-    name = Adam Franco
-    email = afranco@middlebury.edu
+	name = Adam Franco
+	email = afranco@middlebury.edu
 
 [alias]
     ci = commit -a
